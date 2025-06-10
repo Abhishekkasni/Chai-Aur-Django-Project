@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+Home Page
+{% endblock %}
+{% block content %}
+<h1 class='bg-green-900 text-3xl text-yellow-400 p-2'>
+    All Types of Chai are available here!☕
+</h1>
+<div class='grid grid-cols-4 gap-10 m-10'>
+
+    {% for chai in chais %}
+    <div class='chai-item rounded-xl bg-green-900 h-[100%] flex flex-col'>
+        <img class='rounded w-full h-60' src="{{chai.image.url}}" alt="">
+        <h3 class='text-2xl font-bold m-1'>{{chai.name}}</h3>
+        <h3>{{chai.price}} ₹</h3>
+        <a href="{% url "chai_detail" chai.id %}">
+            <button
+            type="button"
+            class='inline-flex items-center w-[80%] justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white m-2'
+            >
+                {% comment %} {{chai.type}} - {{chai.id}} {% endcomment %}
+                Detail Desciption
+            </button>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

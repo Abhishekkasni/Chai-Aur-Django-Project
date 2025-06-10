@@ -1,0 +1,12 @@
+body {
+  background-color: rgba(2, 13, 71, 0.95);
+  color: rgb(234, 234, 143);
+  text-align: center;
+  font-size: x-large;
+}
+button{
+  background-color: rgba(2, 10, 53, 0.95);
+} 
+button:hover{
+  background-color: rgba(11, 25, 102, 0.95);
+}
