@@ -1,4 +1,26 @@
 {% extends "layout.html" %}
+{% block title %}
+Find Chai Store Page
+{% endblock %}
 {% block content %}
-Forms Block
+<form method="POST" class="bg-gray-800 ">
+    {% csrf_token %}
+    {{form}}
+    <button type='submit' class='inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white m-2'>
+        Search Stores
+    </button>
+</form>
+{% if stores %}
+    <h2>Stores Available</h2>
+    <ul>
+        {% for store in stores %}
+        <li>
+            🏪 {{store.name}}
+        </li>
+        <li>
+            📍 {{ store.location}}
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% endblock %}
